@@ -1,0 +1,23 @@
+title: Suspicious Encoded PowerShell Download-and-Execute
+id: 8f2c7b10-example-rule-not-registered
+status: experimental
+description: >
+  Detects PowerShell Script Block Logging (Event 4104) content indicating a
+  fileless download-and-execute pattern, as demonstrated in the CY376
+  project lab (see docs/CY376_PowerShell_Monitoring_Report.docx, Section 5).
+author: Samuel Roland Asahin
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    EventID: 4104
+    ScriptBlockText|contains:
+      - 'DownloadString'
+      - 'Net.WebClient'
+      - 'IEX'
+  condition: selection
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.001
