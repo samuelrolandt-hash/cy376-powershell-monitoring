@@ -1,0 +1,24 @@
+# Secrets and credentials
+*.pfx
+*.pem
+*.key
+credentials*
+secrets*
+*.env
+
+# Large capture / dump files
+*.pcap
+*.pcapng
+*.evtx
+*.dmp
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# Virtual environment clutter
+venv/
+__pycache__/
+node_modules/
